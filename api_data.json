@@ -579,6 +579,88 @@
   },
   {
     "type": "put",
+    "url": "/api/v1/admin/forgotPassword",
+    "title": "Recover password by user email",
+    "version": "0.0.1",
+    "group": "edit",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email of the user passed as the Body parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n           error: false, \n           message: \"Password change requested\", \n           status: 200, \n           data: {\n               n: 1\n               nModified: 1\n               ok: 1\n           }\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.,\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/admin.js",
+    "groupTitle": "edit",
+    "name": "PutApiV1AdminForgotpassword"
+  },
+  {
+    "type": "put",
+    "url": "/api/v1/admin/resetPassword",
+    "title": "Reset password by password reset token",
+    "version": "0.0.1",
+    "group": "edit",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>password reset token of the user passed as the Query parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n           error: false, \n           message: \"Password changed sucessfully\", \n           status: 200, \n           data: {\n               n: 1\n               nModified: 1\n               ok: 1\n           }\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.,\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/admin.js",
+    "groupTitle": "edit",
+    "name": "PutApiV1AdminResetpassword"
+  },
+  {
+    "type": "put",
     "url": "/api/v1/blogs/:adminId/edit",
     "title": "Edit admin by adminId",
     "version": "0.0.1",
@@ -624,88 +706,6 @@
     "filename": "app/routes/admin.js",
     "groupTitle": "edit",
     "name": "PutApiV1BlogsAdminidEdit"
-  },
-  {
-    "type": "put",
-    "url": "/api/v1/blogs/forgotPassword",
-    "title": "Recover password by user email",
-    "version": "0.0.1",
-    "group": "edit",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": "<p>email of the user passed as the Body parameter</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n           error: false, \n           message: \"Password change requested\", \n           status: 200, \n           data: {\n               n: 1\n               nModified: 1\n               ok: 1\n           }\n       }",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.,\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "app/routes/user.js",
-    "groupTitle": "edit",
-    "name": "PutApiV1BlogsForgotpassword"
-  },
-  {
-    "type": "put",
-    "url": "/api/v1/blogs/resetPassword",
-    "title": "Reset password by password reset token",
-    "version": "0.0.1",
-    "group": "edit",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>password reset token of the user passed as the Query parameter</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n           error: false, \n           message: \"Password change sucessfully\", \n           status: 200, \n           data: {\n               n: 1\n               nModified: 1\n               ok: 1\n           }\n       }",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.,\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "app/routes/user.js",
-    "groupTitle": "edit",
-    "name": "PutApiV1BlogsResetpassword"
   },
   {
     "type": "put",
@@ -858,6 +858,88 @@
     "filename": "app/routes/meeting.js",
     "groupTitle": "edit",
     "name": "PutApiV1MeetingsEditMeetingid"
+  },
+  {
+    "type": "put",
+    "url": "/api/v1/users/forgotPassword",
+    "title": "Recover password by user email",
+    "version": "0.0.1",
+    "group": "edit",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email of the user passed as the Body parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n           error: false, \n           message: \"Password change requested\", \n           status: 200, \n           data: {\n               n: 1\n               nModified: 1\n               ok: 1\n           }\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.,\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "edit",
+    "name": "PutApiV1UsersForgotpassword"
+  },
+  {
+    "type": "put",
+    "url": "/api/v1/users/resetPassword",
+    "title": "Reset password by password reset token",
+    "version": "0.0.1",
+    "group": "edit",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>password reset token of the user passed as the Query parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n           error: false, \n           message: \"Password change sucessfully\", \n           status: 200, \n           data: {\n               n: 1\n               nModified: 1\n               ok: 1\n           }\n       }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured.,\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "edit",
+    "name": "PutApiV1UsersResetpassword"
   },
   {
     "type": "get",
